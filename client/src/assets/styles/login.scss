@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+.login_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_box {
+  min-width: 420px;
+  padding: 15px;
+  padding-right: 23px;
+}
+.login_input {
+  margin-left: 13px;
+}
+.login_title {
+  text-align: center;
+  font-size: 24px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Poppins', sans-serif;
+}
+.login_button{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    height: 40px;
+}

@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+.chatroom_container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+.chatroom_sidebar {
+  border-right: 2px solid lightgrey;
+  min-width: 20vw;
+}
+.chatroom_window {
+  background-color: rgb(239, 235, 235) !important;
+  width: 100%;
+}
+.Menu {
+  display: flex;
+}
+.Menu_item {
+  display: flex;
+  justify-content: center;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+  padding: 10px;
+}
+.search_bar {
+  padding: 15px 0px 15px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 0rem;
+}
+.sub_bar{
+  width: 80%;
+  border-radius: 30px;
+  background-color: aliceblue;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  input{
+    margin-top: 1px;
+    font-size: 16px;
+  }
+  input::placeholder{
+    font-size: 16px;
+  }
+}
+.Menu_item {
+  cursor: pointer;
+}
+#inbox:active {
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-bottom: none;
+}
+#all_users:active {
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.Menu_item:hover {
+  background-color: rgb(241, 240, 240);
+}
+
+.list_item:hover {
+  scale: 1.02;
+  cursor: pointer;
+}
+.appbar{
+  margin-top: -1.91%;
+}
+.typing{
+  display: inline;
+  animation: slide 1s 0.1s 1 ;
+}
+@keyframes slide {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.heading{
+  animation: namea 1s 0.1s 1;
+}
+@keyframes namea {
+  0%{
+    transform: translateY(50%);
+  }
+}
+.logout{
+  background-color: aliceblue;
+  margin-top: 6px;
+  width: auto;
+  display: flex;
+  min-height: 44px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.logout:hover{
+  cursor: pointer;
+  background-color: aqua;
+}
