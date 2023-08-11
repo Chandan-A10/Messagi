@@ -1,0 +1,25 @@
+.menu_items:hover {
+  cursor: pointer;
+  border-left: 2px solid black;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.menu_items {
+  border-left: 2px solid transparent;
+  margin-top: 10px;
+}
+.editor_input{
+    outline: none;
+    border: none;
+    resize: none;
+    overflow-y: auto;
+    width: 96%;
+    padding: 10px 0px 0px 0px;
+    resize: none;
+    height: auto;
+    line-height: 1.5;
+    font-size: 16px;
+    max-width: 100%;
+    text-transform: capitalize;
+}

@@ -3,6 +3,8 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  // padding-top: 30px;
+  background-color: white;
 }
 .chatroom_sidebar {
   border-right: 2px solid lightgrey;
@@ -13,6 +15,10 @@
   width: 100%;
 }
 .Menu {
+  padding-left: 10px;
+  padding-top: 9px;
+  font-size: 24px;
+  font-weight: 500;
   display: flex;
 }
 .Menu_item {
@@ -32,46 +38,34 @@
   gap: 0rem;
 }
 .sub_bar{
-  width: 80%;
-  border-radius: 30px;
+  cursor: text;
+  width: 90%;
+  border-radius: 0px;
   background-color: aliceblue;
-  padding: 13px;
+  padding: 5px;
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  border-bottom: 2px solid lightgrey;
   input{
+    width: 100%;
     margin-top: 1px;
-    font-size: 16px;
+    font-size: 14px;
   }
   input::placeholder{
-    font-size: 16px;
+    color: grey;
+    font-weight: 200;
+    letter-spacing: 0.01rem;
+    font-size: 14px;
   }
-}
-.Menu_item {
-  cursor: pointer;
-}
-#inbox:active {
-  box-sizing: border-box;
-  border: 2px solid black;
-  border-bottom: none;
-}
-#all_users:active {
-  box-sizing: border-box;
-  border: 2px solid black;
-  border-bottom: none;
-  cursor: pointer;
-}
-
-.Menu_item:hover {
-  background-color: rgb(241, 240, 240);
 }
 
 .list_item:hover {
-  scale: 1.02;
   cursor: pointer;
+  background-color: rgb(224, 220, 220);
 }
 .appbar{
-  margin-top: -1.91%;
+  margin-top: -1.4%;
 }
 .typing{
   display: inline;
@@ -105,4 +99,7 @@
 .logout:hover{
   cursor: pointer;
   background-color: aqua;
+}
+.profile{
+  display: flex;
 }

@@ -9,11 +9,11 @@ interface RecieverProfileProps {}
 
 const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
   return (
-    <h1>
+    <>
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         <ListItem
           alignItems="flex-start"
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{ display: "flex", justifyContent: "space-between",marginTop:'1%' }}
         >
           <div style={{ display: "flex" }}>
             <ListItemAvatar>
@@ -21,7 +21,7 @@ const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
             </ListItemAvatar>
             <div
               style={{
-                minHeight: "55px",
+                minHeight: "60px",
                 display: "flex",
                 alignItems: "center",
               }}
@@ -65,7 +65,7 @@ const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
           </div>
         </ListItem>
       </List>
-    </h1>
+    </>
   );
 };
 

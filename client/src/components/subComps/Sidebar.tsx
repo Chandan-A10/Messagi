@@ -1,5 +1,6 @@
 import { Divider, Box, Paper } from "@mui/material";
 import UserList from "../UsersList";
+import ControlMenu from "../ControlMenu";
 import { useEffect, useState } from "react";
 import { SearchOutlined } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
@@ -32,23 +33,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   }, []);
   return (
     <div>
-      <Box className="search_bar">
-        <div className="sub_bar">
-          <SearchOutlined />
-          <input
-            placeholder="Search..."
-            // autoComplete="off"
-            style={{
-              border: "none",
-              outline: "none",
-              backgroundColor: "transparent",
-            }}
-          />
-        </div>
-      </Box>
-      <Divider />
       <Box className="Menu">
-        <Paper
+        {/* <Paper
           elevation={0}
           className="Menu_item"
           id="inbox"
@@ -63,8 +49,25 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
           style={{ width: "50%" }}
         >
           All Users
-        </Paper>
+        </Paper> */}
+        Chats
       </Box>
+      <Box className="search_bar">
+        <div className="sub_bar">
+          <SearchOutlined />
+          <input
+            placeholder="Search..."
+            // autoComplete="off"
+            autoFocus={true}
+            style={{
+              border: "none",
+              outline: "none",
+              backgroundColor: "transparent",
+            }}
+          />
+        </div>
+      </Box>
+      <Divider />
       <UserList users={users} />
     </div>
   );
