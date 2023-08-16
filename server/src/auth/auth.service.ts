@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { WebSocketGateway } from '@nestjs/websockets';
 import { User } from 'src/schema/users.schema';
 import { UsersService } from 'src/users/users.service';
 

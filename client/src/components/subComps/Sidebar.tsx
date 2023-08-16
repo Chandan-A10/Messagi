@@ -1,6 +1,6 @@
 import { Divider, Box, Paper } from "@mui/material";
 import UserList from "../UsersList";
-import ControlMenu from "../ControlMenu";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useEffect, useState } from "react";
 import { SearchOutlined } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
@@ -12,6 +12,7 @@ import { Userdata } from "../../store/userSlice";
 interface SidebarProps {}
 
 const Sidebar: React.FunctionComponent<SidebarProps> = () => {
+  const [theme, settheme] = useState('true'===localStorage.getItem('theme'))
   const state = useAppSelector(userSelector)
   const [users, setusers] = useState<Userdata[] | []>([]);
   const dispatch = useDispatch<AppDispatch>();
@@ -32,28 +33,15 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
     }
   }, []);
   return (
-    <div>
+    <div style={{background:'transparent'}}>
       <Box className="Menu">
-        {/* <Paper
-          elevation={0}
-          className="Menu_item"
-          id="inbox"
-          style={{ width: "50%" }}
-        >
-          Inbox
-        </Paper>
-        <Paper
-          elevation={0}
-          className="Menu_item"
-          id="all_users"
-          style={{ width: "50%" }}
-        >
-          All Users
-        </Paper> */}
+        <div>
         Chats
+        </div>
+        <MenuRoundedIcon/>
       </Box>
       <Box className="search_bar">
-        <div className="sub_bar">
+        <div className={`sub_bar ${theme?'dark':'light'}`}>
           <SearchOutlined />
           <input
             placeholder="Search..."

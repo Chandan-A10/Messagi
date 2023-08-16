@@ -1,21 +1,27 @@
 .profile_menu {
   width: 50%;
   border-right: 2px solid lightgrey;
-  ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  li {
-    margin-left: -2%;
-    // background-color: aqua;
-  }
 }
 .profile_content {
   width: 100%;
   padding-left: 15px;
   padding-top: 15px;
+}
+.setting_menu{
+  width: 90%;
+  margin-left: 5px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.setting_menu_item{
+  display: flex;
+  align-items: center;
+  min-height: 7vh;
+  gap: 0.7rem;
+}
+.setting_menu_item:hover{
+  background-color: #f1f1f1;
 }
 .pic {
   background-color: aqua;

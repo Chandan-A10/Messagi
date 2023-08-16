@@ -5,29 +5,32 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import { Userdata } from "../store/userSlice";
+import { useState } from "react";
 
 interface UserListProps {
   users: Userdata[];
 }
 
 const UserList: React.FunctionComponent<UserListProps> = (props) => {
+  const [theme, settheme] = useState('true'===localStorage.getItem('theme'))
   return (
     <div>
-      {props.users.length !== 0 ? (
+      {props?.users?.length !== 0 ? (
         <List
-          sx={{ width: "100%", bgcolor: "background.paper" }}
+          sx={{ width: "98%", bgcolor: "transparent" ,marginLeft:'1%' }}
         >
-          {props.users.map((usr: Userdata, idx) => (
+          {props?.users?.map((usr: Userdata, idx) => (
             <div key={idx}>
-              <ListItem className="list_item" alignItems="flex-start">
+              <ListItem className={`list_item ${theme?'dark':'light'}`} alignItems="flex-start">
                 <ListItemAvatar>
                   <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
                 </ListItemAvatar>
                 <ListItemText
-                  primary={usr.email}
+                  primary={<div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><div>{usr.email}</div><div style={{fontSize:'12px'}}>Yestarday</div></div>}
                   secondary={
                     <p
                       style={{
+                        color:theme?'#fcfcfc':'#272727',
                         margin: "0",
                         overflow: "hidden",
                         whiteSpace: "nowrap",
@@ -41,7 +44,6 @@ const UserList: React.FunctionComponent<UserListProps> = (props) => {
                   }
                 />
               </ListItem>
-              <Divider variant="inset" component="li" />
             </div>
           ))}
         </List>

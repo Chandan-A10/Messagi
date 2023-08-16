@@ -1,69 +1,85 @@
-import Emoji from "@mui/icons-material/EmojiEmotions";
-import Addfile from "@mui/icons-material/FileUpload";
+import AttachFileRoundedIcon from "@mui/icons-material/AttachFileRounded";
+// import Addfile from "@mui/icons-material/FileUpload";
 import Send from "@mui/icons-material/SendOutlined";
 import EmojiPallete from "./EmojiPallete";
+import { Button, TextareaAutosize } from "@mui/material";
+import { FormEvent, useEffect, useState } from "react";
 
 interface EditorProps {}
 
 const Editor: React.FunctionComponent<EditorProps> = () => {
-  const handleInputSize = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    const tag = e.target as HTMLTextAreaElement;
-    const maxrow = 5;
-    tag.style.height = "auto";
-    console.log(getComputedStyle(tag).lineHeight);
-    const scrollHeight = Math.min(
-      tag.scrollHeight,
-      maxrow * parseInt(getComputedStyle(tag).lineHeight)
-    );
-    tag.style.height = scrollHeight + "px";
-  };
+  const [theme, settheme] = useState('true'===localStorage.getItem('theme'))
+  const [flag, setflag] = useState<boolean>(true);
+  const handleInputChange = () =>{
+    setflag(!flag)
+  }
+  useEffect(() => {
+    const ele = document.getElementById("main_c")!;
+    ele.scrollTop = ele?.scrollHeight;
+  }, [flag]);
   return (
     <div
       style={{
+        width: "100%",
         display: "flex",
-        padding: "10px 8px 10px",
-        backgroundColor:'white',
-        gap: "0.8rem",
+        paddingTop:'3px',
+        paddingBottom: "10px",
+        backgroundColor:theme?'#272727':"white",
+        gap: "0.5rem",
+        borderTop: `2px solid ${theme?'#1c1c1c':'lightgrey'}`,
       }}
     >
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "end",
           marginLeft: "10px",
         }}
       >
-        <Addfile />
+        <Button>
+          <AttachFileRoundedIcon style={{ color:theme?'#fcfcfc' :"#272727" }} />
+        </Button>
       </div>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "end",
         }}
       >
         <EmojiPallete />
       </div>
-      <div style={{ width: "100%", display: "flex",gap:'1rem' }}>
-        <textarea
+      <div
+      className={`tdiv ${theme?'dark':'light'}`}
+        style={{
+          width: "100%",
+          display: "flex",
+          gap: "1rem",
+          padding:'3px',
+          alignItems: "center",
+        }}
+      >
+        <TextareaAutosize
           id="editor"
-          rows={1}
-          className="editor_input"
+          autoCapitalize="on"
+          autoComplete="on"
+          className={`editor_input ${theme?'dark':'light'}`}
           autoFocus={true}
-          autoComplete="off"
-          placeholder=" Type a message"
-          onInput={(e) => handleInputSize(e)}
+          placeholder="Type a message"
+          maxRows={5}
+          onInput={handleInputChange}
         />
-
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "end",
           }}
         >
-          <Send />
+          <Button>
+            <Send style={{ color:theme?'#fcfcfc' :"#272727"  }} />
+          </Button>
         </div>
       </div>
     </div>

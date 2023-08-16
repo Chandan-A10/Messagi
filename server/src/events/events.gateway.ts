@@ -11,6 +11,10 @@ export class EventsGateway {
   @WebSocketServer()
   server: Server;
 
+  @SubscribeMessage('newUser')
+  handleNewUser(client:Socket, data:string) {
+    console.log(data)
+  }
   @SubscribeMessage('message')
   handleMessage(client: Socket, data: string) {
     console.log(data);

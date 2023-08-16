@@ -5,12 +5,14 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Logout from "@mui/icons-material/Logout";
 import Ham from "@mui/icons-material/Menu";
+import { useState } from "react";
 interface RecieverProfileProps {}
 
 const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
+  const [theme, settheme] = useState('true'===localStorage.getItem('theme'))
   return (
     <>
-      <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+      <List sx={{ width: "100%", bgcolor: theme?'#272727':'background.paper' }}>
         <ListItem
           alignItems="flex-start"
           sx={{ display: "flex", justifyContent: "space-between",marginTop:'1%' }}
@@ -29,11 +31,11 @@ const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
               <ListItemText
                 style={{
                   minWidth: "30%",
-                  backgroundColor: "white",
                   display: "flex",
                   whiteSpace: "nowrap",
                   alignItems: "center",
                   flexDirection: "column",
+                  color:theme?'white':'black'
                 }}
                 primary={<div className="heading">Jimmy Jackson</div>}
                 secondary={
@@ -41,6 +43,7 @@ const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
                     <p
                       className="typing"
                       style={{
+                        color:theme?'white':'black',
                         //   display: "none",
                         width: "100%",
                         margin: "0",
@@ -55,12 +58,12 @@ const RecieverProfile: React.FunctionComponent<RecieverProfileProps> = () => {
               />
             </div>
           </div>
-          <div style={{display:'flex',gap:'0.3rem'}}>
+          <div style={{display:'flex',gap:'1rem'}}>
             <div className="logout">
-              <Logout sx={{ fontSize: "30px" }} />
+              <Logout sx={{ fontSize: "30px", color:theme?'#fcfcfc' :"#272727"}} />
             </div>
             <div className="logout">
-              <Ham sx={{ fontSize: "30px" }} />
+              <Ham sx={{ fontSize: "30px", color:theme?'#fcfcfc' :"#272727"}} />
             </div>
           </div>
         </ListItem>

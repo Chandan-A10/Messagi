@@ -1,31 +1,34 @@
-import Setting from "@mui/icons-material/Settings";
-import User from "@mui/icons-material/CircleOutlined";
+import Setting from "@mui/icons-material/SettingsOutlined";
 import Message from "@mui/icons-material/ChatBubbleOutlineRounded";
-import Archived from "@mui/icons-material/Archive";
+import Archived from "@mui/icons-material/ArchiveOutlined";
 import "../assets/styles/controllermenu.scss";
+import ChatRoundedIcon from '@mui/icons-material/ChatOutlined';
 import ProfileModal from "./MenuModals/ProfileModal";
-interface ControlMenuProps {}
+import { useState } from "react";
 
-const ControlMenu: React.FunctionComponent<ControlMenuProps> = () => {
+const ControlMenu: React.FunctionComponent = () => {
+  const [theme, settheme] = useState('true'===localStorage.getItem('theme'))
   return (
     <>
-      <div style={{}}>
-        <div className="menu_items">
-          <Message sx={{ fontSize: "30px" }} />
+      <div className="sdbar">
+        <div>
+          <div className={`menu_items ${theme?'dark':'light'}`}>
+          <ChatRoundedIcon sx={{ fontSize: "25px",color:theme?'white':'black'}} />
+          </div>
+          <div className={`menu_items ${theme?'dark':'light'}`}>
+            <Message sx={{ fontSize: "25px" ,color:theme?'white':'black'}} />
+          </div>
         </div>
-        <div className="menu_items">
-          <Message sx={{ fontSize: "30px" }} />
-        </div>
-      </div>
-      <div>
-        <div className="menu_items">
-          <Archived sx={{ fontSize: "30px" }} />
-        </div>
-        <div className="menu_items">
-          <Setting sx={{ fontSize: "30px" }} />
-        </div>
-        <div className="menu_items">
-          <ProfileModal />
+        <div>
+          <div className={`menu_items ${theme?'dark':'light'}`}>
+            <Archived sx={{ fontSize: "25px" ,color:theme?'white':'black'}} />
+          </div>
+          <div className={`menu_items ${theme?'dark':'light'}`}>
+            <Setting sx={{ fontSize: "25px" ,color:theme?'white':'black'}} />
+          </div>
+          <div className={`menu_items ${theme?'dark':'light'}`}>
+            <ProfileModal />
+          </div>
         </div>
       </div>
     </>
